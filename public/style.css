@@ -136,6 +136,10 @@ input:hover {
     }
     .container{
         margin-top: 30px;
+        margin-left: 10px;
+    }
+    .input-bar{
+        width: 100%;
     }
 }
 .card{
