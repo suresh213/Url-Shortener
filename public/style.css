@@ -99,6 +99,7 @@ input:hover {
     padding: 8px 10px;
     font-size: 14px;
     cursor: pointer;
+    margin-top: 5px;
 }
 .remove-btn:hover {
     background-color: #205c14;
@@ -107,6 +108,7 @@ input:hover {
   }
 .container{
     display: grid;
+    grid-template-rows:auto auto auto;
     height: 80%;
     width: 70%;
     padding:10px;
@@ -118,24 +120,30 @@ input:hover {
 {
     margin : 0 -5px;
 }
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    float: left;
+  }
 .column{
     float: left;
     width: 30%;
     padding: 0 10px;
 }
 @media screen and (max-width:600px){
-    .column{
+    .column {
         width: 100%;
         display: block;
-        margin-top: 20px;
-    }
+        margin-bottom: 20px;
+      }
 }
 @media screen and (max-width:600px){
     .submit-btn{
         margin-top: 10px;
     }
     .container{
-        margin-top: 30px;
+        margin-top: 10vh;
         margin-left: 10px;
     }
     .input-bar{
@@ -151,8 +159,9 @@ input:hover {
     background-color: rgb(231, 241, 241);
     font-family: 'Raleway', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    height: fit-content;
-    width: fit-content;
+    width: 40vh;
+    height: 20vh;
+    word-break: break-all;
 }
 .footer{
     background-color: black;
