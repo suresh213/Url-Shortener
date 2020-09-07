@@ -10,10 +10,11 @@ app.use(body_parser.urlencoded({ extended: true }))
 
 
 //db connection
+const MONGO_URL = process.env.MONGO_URL || "mongodb://localhost:27017/myUrlshortener"
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb://localhost:27017/myUrlshortener");
+mongoose.connect(MONGO_URL);
 
 app.get('/', (req, res) => {
     let allurl = urlmodel.find((err, result) => {
@@ -62,8 +63,9 @@ app.get('/delete/:id',(req,res) => {
         res.redirect('/');
     })
 })
-
-app.listen(2000, () => {
+const PORT = process.env.PORT || 3000
+var HOST = process.env.HOST || '0.0.0.0';
+app.listen(PORT,HOST, () => {
     console.log('server started')
 })
 
@@ -72,7 +74,7 @@ function generateshortUrl() {
     var result = "";
     var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
-    for (i = 0; i < 6; i++) {
+    for (var i = 0; i < 6; i++) {
         result += characters.charAt(Math.floor(
             Math.random() * characters.length
         ))
