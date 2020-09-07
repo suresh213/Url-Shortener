@@ -46,8 +46,8 @@
             <div class="column">
                 <div class="card">
                     <h6 class="header">Clicks : <%=   urlResult[i].clickcount  %></h6>
-                    <a  href="http://localhost:2000/<%= urlResult[i].shortUrl  %>"
-                        target="_blank"><b>http://localhost:2000/<%= urlResult[i].shortUrl  %></b></a>
+                    <a  href="https://shortify12.herokuapp.com/<%= urlResult[i].shortUrl  %>"
+                        target="_blank"><b>shortify12.com/<%= urlResult[i].shortUrl  %></b></a>
                     <p>Original Link: <%= urlResult[i].longUrl %></p>
                     <button onclick="location.href='/delete/<%= urlResult[i].id  %>'" class="remove-btn"><i class="fa fa-trash" style="color: rgb(255, 255, 255);"></i> Delete</button>
                 </div>
