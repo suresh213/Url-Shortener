@@ -149,6 +149,9 @@ input:hover {
     .input-bar{
         width: 100%;
     }
+    .navigation-bar{
+        width: 100%;
+    }
 }
 .card{
     margin-top: 20px;
