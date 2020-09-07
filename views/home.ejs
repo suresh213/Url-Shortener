@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Unicase&family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Jockey+One&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Jockey+One&family=Marck+Script&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/icon type">
+    <title>URL Shortener</title>
+</head>
+
+<body>
+    <!-- Navigartion bar -->
+    <div class="navigation-bar">
+        <div class="nav-left">
+            <img src="logo.png" alt="logo" class="logo" >
+        </div>
+        <div class="head">
+            <h2>Url Shortener</h2>
+        </div>
+        <div class="nav-right" style="margin-top: 5px;">
+            <div style="font-size: 34px;">
+            <a href="https://www.linkedin.com/in/suresh-a/"><i  class="fa fa-linkedin fa-10x" style="color: rgb(20, 85, 170);"></i></a>
+            <a href="https://github.com/suresh213/"><i class="fa fa-github fa-10x" style="color: rgb(0, 0, 0); padding: 7px;"></i></a>
+        </div>
+        </div>
+    </div>
+    <b><p class="mess-text">Sometimes it's better to be small right ?<p></b>
+        <b><p class="mess1-text">Make your url 's short<p></b>
+    <!-- nput bar  -->
+    <form action="/create" method="POST" class="bar" onsubmit="return checkfield()" name=" bar">
+        <input type="text" name="longurl" placeholder="Paste your Url here" class="input-bar" required>
+        <span><button class="submit-btn" type="submit" ><i class="fa fa-arrow-right" style="color: rgb(255, 255, 255);"></i> Shrink</button></span>
+    </form>
+    <div class="message"></div>
+    <!-- Links in divisions -->
+   <div class="container">
+        <div class="row">
+            <% for(let i=0 ; i<urlResult.length; i++) { %>
+            <div class="column">
+                <div class="card">
+                    <h6 class="header">Clicks : <%=   urlResult[i].clickcount  %></h6>
+                    <a  href="http://localhost:2000/<%= urlResult[i].shortUrl  %>"
+                        target="_blank"><b>http://localhost:2000/<%= urlResult[i].shortUrl  %></b></a>
+                    <p>Original Link: <%= urlResult[i].longUrl %></p>
+                    <button onclick="location.href='/delete/<%= urlResult[i].id  %>'" class="remove-btn"><i class="fa fa-trash" style="color: rgb(255, 255, 255);"></i> Delete</button>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><p style="margin-top:5px ;">Made with </span><span><i class="fa fa-heart" style="color: rgb(209, 9, 9);"></i></span> <span>by Suresh</span></p>
+        
+    </div>
+    <script>
+        function checkfield(){
+                //    alert("yes, there has been an issue");
+        }
+    </script>
+</body>
+
+</html>
